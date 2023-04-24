@@ -8,18 +8,28 @@ datasource db {
 }
 
 model Product {
-  id         String   @id @default(uuid())
-  name       String
-  bar_code   String   @unique
-  price      Decimal
-  created_at DateTime @default(now())
+  id              String            @id @default(uuid())
+  name            String
+  bar_code        String            @unique
+  price           Decimal
+  created_at      DateTime          @default(now())
+  ProductCategory ProductCategory[]
 
   @@map("products")
 }
 
 model Category {
-  id   String @id @default(uuid())
-  name String
+  id              String            @id @default(uuid())
+  name            String
+  ProductCategory ProductCategory[]
 
   @@map("categories")
+}
+
+model ProductCategory {
+  id          String   @id @default(uuid())
+  id_product  String
+  product     Product  @relation(fields: [id_product], references: [id])
+  id_category String
+  category    Category @relation(fields: [id_category], references: [id])
 }
