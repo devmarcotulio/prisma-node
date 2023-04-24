@@ -13,6 +13,6 @@ export class CreateProductController {
             }
         })
 
-        return res.jsonp()
+        return res.json(product)
     }
 }
