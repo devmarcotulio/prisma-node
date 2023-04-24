@@ -32,4 +32,6 @@ model ProductCategory {
   product     Product  @relation(fields: [id_product], references: [id])
   id_category String
   category    Category @relation(fields: [id_category], references: [id])
+
+  @@map("products_categories")
 }
