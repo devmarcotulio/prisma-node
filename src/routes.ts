@@ -7,7 +7,7 @@ const router = Router()
 
 const createProduct = new CreateProductController()
 const createCategory = new CreateCategoryController()
-const createProductCategory = new CreateProductCategoryController
+const createProductCategory = new CreateProductCategoryController()
 
 router.post("/product", createProduct.handle)
 router.post("/category", createCategory.handle)
