@@ -8,6 +8,9 @@ export class SearchCategoryController{
         const category = await prismaClient.category.findFirst({
             where: {
                 id
+            },
+            include: {
+                ProductCategory: true
             }
         })
 
